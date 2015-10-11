@@ -1,0 +1,22 @@
+{% extends 'wechat/base.html' %}
+
+{% block title %}
+    网页授权获取用户信息
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="panel panel-default center-block">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-2 col-sm-offset-5">
+                    <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid={{ appid }}&redirect_uri={{ redirect_uri }}&response_type=code&scope={{ scope }}&state={{ state }}#wechat_redirect">
+                        <span class="glyphicon glyphicon-send"></span>跳转到微信授权页</a>        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
+        

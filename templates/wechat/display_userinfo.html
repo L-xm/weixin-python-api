@@ -1,0 +1,29 @@
+{% extends 'wechat/base.html' %}
+
+{% block title %}
+    用户信息
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">用户信息</div>
+        </div>
+        <table class="table table-bordered">
+            {% for item in userinfo %}
+                <tr>
+                    <td>{{ item.0 }}</td>
+                    {% ifequal forloop.counter 4 %}
+                        <td><a href="{{ item.1 }}" alt="头像">查看头像</a></td>
+                    {% else %}
+                        <td>{{ item.1 }}</td>
+                    {% endifequal %}
+                </tr>
+            {% empty %}
+                <tr>
+                    <td>没有用户信息</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
