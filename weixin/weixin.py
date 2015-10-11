@@ -41,7 +41,7 @@ class WeiXinBasic(object):
     def __init__(self):
         self.token = conf.get('token')
 
-    def check_signature(signature, timestamp, nonce):
+    def check_signature(self, signature, timestamp, nonce):
         '''检查signature
         '''
         import hashlib
