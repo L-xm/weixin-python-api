@@ -27,7 +27,7 @@ def home(request):
         data = utils.trans_userinfo(data)
         return render_to_response('wechat/display_userinfo.html',
                                   {'userinfo': data})
-    redirect_uri = urllib.quote_plus(reverse('wechat:userinfo'))
+    redirect_uri = urllib.quote_plus('http://slience.xyz' + reverse('wechat:userinfo'))
     context = {'appid': conf.get('appid'),
                'redirect_uri': redirect_uri,
                'scope': 'snsapi_userinfo',
@@ -56,7 +56,7 @@ def display_userinfo(request):
         # 授权失败
         return render_to_response('wechat/error.html')
     wx_usermanager = WeiXinUserManager()
-    data = wx_usermanager.get_oauth2_access_token(code.encode('utf8'))
+    data = wx_usermanager.get_oauth2_access_token(code)
     request.session['oauth_data'] = data
     return redirect(reverse('wechat:userinfo'))
 
